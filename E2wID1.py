@@ -27,11 +27,10 @@ def process_string(s='', Rvalues = []):
     # Backup the string s
     original_s = s
     # Compare with the string s
-    while len(s) > 0:
+    while '_' in s:
+        s = s[:s.rfind('_')]
         if s in Rvalues:
             return s
-        else:
-            s = s[:-1]
 
     return original_s
 
