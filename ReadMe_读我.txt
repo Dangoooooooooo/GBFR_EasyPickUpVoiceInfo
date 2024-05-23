@@ -57,7 +57,7 @@ A10:
 
 ------------------------------------------------------------------------------------
 
-这个工具是给《Granblue Fantasy: Relink》这个游戏做语音mod用的，它能很方便的提取出游戏里每个角色的“Action”、“Motion”、“EventName”、以及对应bnk文件里“wemID”的对应关系，并生成Excel表。此外也能在填写完表格后，根据其内容重新打包成对应bnk文件。如果有任何问题，都可以在BiliBili网站搜Dangoooooo联系我，也能通过qq号：1041271418找到我，也能直接在github上找到源代码和新发布的工具包 <http://github.com/Dangoooooooooo/GBFR_EasyPickUpVoiceInfo>，我会不定时查看。
+这个工具是给《Granblue Fantasy: Relink》这个游戏做语音mod用的，它能很方便地提取出游戏里每个角色的“Action”、“Motion”、“EventName”、以及对应bnk文件里“wemID”的对应关系，并生成Excel表。此外也能在填写完表格后，根据其内容重新打包成对应bnk文件。如果有任何问题，都可以在BiliBili网站搜Dangoooooo联系我，也能通过qq号：1041271418找到我，也能直接在github上找到源代码和新发布的工具包 <http://github.com/Dangoooooooooo/GBFR_EasyPickUpVoiceInfo>，我会不定时查看。
 
 请仔细阅读下面的Q&A版块，以及GBFR#EasyPickUpVoiceInfo.exe工具上的注释。
 
