@@ -1,5 +1,3 @@
-Here is the translation of the text into English:
-
 This tool is designed for creating voice mods for the game "Granblue Fantasy: Relink". It conveniently extracts the relationships between each character's "Action", "Motion", "EventName", and the corresponding "wemID" in the bnk files, and generates an Excel table. Additionally, after filling out the table, it can repackage the content into the corresponding bnk files. If you have any questions, you can contact me on BiliBili by searching for Dangoooooo, or find me through QQ number: 1041271418. You can also find the source code and the newly released tool package directly on GitHub at <http://github.com/Dangoooooooooo/GBFR_EasyPickUpVoiceInfo>. I will check periodically.
 
 Please read the Q&A section below carefully, as well as the comments on the GBFR#EasyPickUpVoiceInfo.exe tool.
