@@ -2,6 +2,8 @@ import os
 import subprocess
 import re
 import pandas as pd
+import tkinter as tk
+from tkinter import messagebox
 
 def extract_json_from_msg(msg_path, msgpacker_exe):
     try:
@@ -63,6 +65,16 @@ def Action2Motion_Process():
         # 创建DataFrame并保存到Excel文件
         df = pd.DataFrame(data, columns=['ActionID', 'AbilityTag'] + [f'MotionID_{j}' for j in range(1, 11)])
         df_path = os.path.join(r'.\Yours', 'GBFR#1Action_Motion_ComparisonTable.xlsx')
+        # 检查Excel文件是否已经存在
+        if os.path.exists(df_path):
+            root = tk.Tk()
+            root.withdraw()  # Hide the main window
+            result = messagebox.askyesno("File Already Exists",
+                                         "The Excel file already exists. Do you want to overwrite it?")
+            root.destroy()
+            if not result:
+                print("Operation cancelled.")
+                return
         df.to_excel(df_path, sheet_name='Action2Motion', index=False)
         print(f'Excel updated data saved in {df_path}')
     else:

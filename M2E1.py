@@ -4,6 +4,8 @@ import subprocess
 import re
 import pandas as pd
 from xml.etree import ElementTree as ET
+import tkinter as tk
+from tkinter import messagebox
 
 def Motion2Event_Process():
     nier_cli_mgrr_path = r'.\Yours\nier_cli_mgrr\nier_cli_mgrr.exe'
@@ -108,6 +110,18 @@ def Motion2Event_Process():
 
     # 将数据列表转换为DataFrame
     df = pd.DataFrame(data, columns=columns)
+
+    # 检查Excel文件是否已经存在
+    excel_path = os.path.join(r'.\Yours', "GBFR#2Motion_EventName_ComparisonTable.xlsx")
+    if os.path.exists(excel_path):
+        root = tk.Tk()
+        root.withdraw()  # Hide the main window
+        result = messagebox.askyesno("File Already Exists",
+                                     "The Excel file already exists. Do you want to overwrite it?")
+        root.destroy()
+        if not result:
+            print("Operation cancelled.")
+            return
 
     # 将DataFrame保存为Excel文件
     df.to_excel(os.path.join(r'.\Yours', "GBFR#2Motion_EventName_ComparisonTable.xlsx"), sheet_name='Motion2EventName', index=False)

@@ -61,6 +61,7 @@ def bnkRepack_Process():
                 shutil.move(file, '.\\Yours\\bnkEXPORT\\' + os.path.basename(file))
                 # 删除new_subdir文件夹
                 # shutil.rmtree(export_dir[:-7])  # 去掉'\export'得到new_subdir的路径
+    print(f"Successfully moved all [.bnk] files in the '.\\Yours\\bnkEXPORT\\' folder")
 
 if __name__ == "__main__":
     bnkRepack_Process()

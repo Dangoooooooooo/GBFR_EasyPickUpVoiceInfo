@@ -8,6 +8,8 @@ from openpyxl.styles import Font
 import json
 from openpyxl import load_workbook
 from collections import defaultdict
+import tkinter as tk
+from tkinter import messagebox
 
 def convert_value(x):
     if pd.isnull(x):  # 如果数据是空的
@@ -683,13 +685,24 @@ def MixUp_Process():
     old_file_name = r".\Yours\GBFR#0AllMixUp_PlayerVoice.xlsx"
     new_file_name = fr".\Yours\GBFR#0{CharID}{CharName}VoiceInfo_MixUp.xlsx"
 
-    # 删除已经存在的文件
+    # Check if the new file already exists
     if os.path.exists(new_file_name):
-        os.remove(new_file_name)
+        root = tk.Tk()
+        root.withdraw()  # Hide the main window
+        result = messagebox.askyesno("File Already Exists", "The new file already exists. Do you want to overwrite it?")
+        root.destroy()
+        if not result:
+            # If the user chooses not to overwrite the new file, delete the old file
+            if os.path.exists(old_file_name):
+                os.remove(old_file_name)
+            print("Operation cancelled.")
+            return
+        else:
+            # If the user chooses to overwrite the new file, delete it
+            os.remove(new_file_name)
 
-    # 更改文件名
+    # Rename the file
     os.rename(old_file_name, new_file_name)
-
     print(f'Excel updated data saved in {new_file_name}')
 
 if __name__ == "__main__":

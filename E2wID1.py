@@ -5,6 +5,8 @@ import string
 from openpyxl import load_workbook
 from openpyxl.styles import Alignment
 from modules.bnk import extractBNKFile
+import tkinter as tk
+from tkinter import messagebox
 
 def process_string(s='', Rvalues = []):
     # Add new feature: replace the four digits after "PL" with "xxx0"
@@ -179,6 +181,16 @@ def Event2wemID_Process():
 
     # 将结果保存到 Excel 文件
     output_file = os.path.join(r'.\Yours', "GBFR#3EventName_wemID_ComparisonTable.xlsx")
+    # Check if the Excel file already exists
+    if os.path.exists(output_file):
+        root = tk.Tk()
+        root.withdraw()  # Hide the main window
+        result = messagebox.askyesno("File Already Exists",
+                                     "The Excel file already exists. Do you want to overwrite it?")
+        root.destroy()
+        if not result:
+            print("Operation cancelled.")
+            return
     df.to_excel(output_file, sheet_name="EventName2wemID", index=False, engine='openpyxl')
 
 
